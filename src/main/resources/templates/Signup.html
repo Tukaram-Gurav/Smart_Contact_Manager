@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>About</title>
+</head>
+<body>
+	<section>
+
+		<div class="card mr-4 ml-4">
+			<div class="card-body">
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<div th:if="${session.messege}"
+								th:classappend="${session.messege.type}" class="alert">
+
+
+								<p class="text-center" th:text="${session.messege.content}"></p>
+							
+
+
+							</div>
+
+
+
+							<!-- <th:block th:text="${#session.removeAttribute('messege')}"></th:block> -->
+
+
+							<form novalidate class="form-horizontal" action=''
+								enctype="multipart/form-data" th:action="@{/do_register}"
+								th:object="${user}" method="POST">
+								<div class="my-card">
+
+									<div id="legend">
+										<div class="text-center">
+											<img style="width: 60px;" src="" th:src="@{/Image/icon.png}"
+												alt="" />
+										</div>
+										<legend class="text-center">
+											<h1>Register Here</h1>
+										</legend>
+									</div>
+									<!--******************* ********************Name Field ** *************************** -->
+
+									<div class="input-group mt-3">
+										<div class="input-group-prepend">
+											<div class="input-group-text mr-3">
+												<i class="fas fa-user"></i>
+											</div>
+										</div>
+
+										<input type="text" name="name" placeholder="Enter Your Name"
+											required="required" class="form-control input-lg is-invalid"
+											th:value="${user.name}"
+											th:casslappend="${#fields.hasErrors('name') ? 'is-invalid' : ''}" />
+										<div class="invalid-feedback"
+											th:each="e : ${#fields.errors('name')}" th:text="${e}">
+										</div>
+									</div>
+
+
+
+
+									<!--******************* Email Field *************** -->
+
+
+
+									<div class="input-group mt-3">
+										<div class="input-group-prepend">
+											<div class="input-group-text mr-3">@</div>
+										</div>
+
+										<input type="email" name="email"
+											placeholder="Enter Your Email" required
+											class="form-control input-lg is-invalid"
+											th:value="${user.email}"
+											th:casslappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}">
+
+										<div class="invalid-feedback"
+											th:each="f : ${#fields.errors('email')}" th:text="${f}"></div>
+
+
+									</div>
+
+
+
+
+									<!--******************* Password Field *************** -->
+
+
+
+									<div class="input-group mt-3">
+										<div class="input-group-prepend">
+											<div class="input-group-text mr-3">
+												<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+											</div>
+										</div>
+
+										<input type="text" name="password"
+											placeholder="Enter Your Password" required
+											class="form-control input-lg" th:value="${user.password}">
+
+
+									</div>
+
+
+
+									<!--********************************        Profile picture        ********************************* *************** -->
+
+
+									<div class="input-group mt-3">
+										<div class="input-group-prepend">
+											<div class="input-group-text mr-3">
+												<i class="fa fa-camera"></i>
+											</div>
+										</div>
+										<input type="file" name="UserImage" class="form-control" />
+									</div>
+
+									<!--******************* About Field *************** -->
+
+
+									<div class="form-group mt-3">
+										<textarea id="mytextarea" name="About" rows="6"
+											th:text="${user.About}"
+											placeholder="write something yourself" class="form-control"></textarea>
+									</div>
+
+
+									<!--******************* Check Field *************** -->
+
+									<div class="form-group form-check mt-2">
+										<input type="checkbox" name="agreement"> <label
+											for="agreement">Accept terms and conditions</label>
+									</div>
+
+									<!--****************************** Button ************************************-->
+
+
+									<div class="control-group mt-3">
+
+										<div class="controls text-center">
+
+											<button type="submit" class="btn btn-primary">Register</button>
+											<button type="reset" class="btn btn-warning">Reset</button>
+										</div>
+									</div>
+								</div>
+						</div>
+					</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<script
+			src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"
+			referrerpolicy="origin"></script>
+		<script>
+			tinymce.init({
+				selector : '#mytextarea'
+			});
+		</script>
+	</section>
+</body>
+</html>

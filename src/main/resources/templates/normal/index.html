@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>User DashBoard</title>
+</head>
+<body>
+
+	<section>
+
+		<div class="card mr-3 ml-3">
+			<div class="card-body">
+				<div class="container text-center">
+
+					<h1 class="mt-1">
+						Welcome<b> Mr.<span th:text="${user.name}"></span>
+						</b>to Smart Contact Manager
+					</h1>
+
+					<img class="contact_profile mt-5"
+						style="height: 200px; width: 200px; border: 5px solid black;"
+						alt="" src="/Image/contacts.png">
+
+					<div class="mt-5 font-italic font-secondary">
+						<h3>Start Adding Your Contact On Our Cloud</h3>
+					</div>
+					<a href="/user/add_contacts"><button
+							class="btn btn-sm btn-block btn-primary mt-5">Add New
+							Contacts</button></a> 
+							<form action="/download/createpdf" class="mt-1"
+										 method="post"><button
+							class="btn btn-sm btn-block btn-warning mt-3">Download Your
+							Contacts</button></form>
+							<form action="/download/createxl" class="mt-1"
+										 method="post"><button
+							class="btn btn-sm btn-block btn-warning mt-3">Download Your
+							Contacts</button></form>
+
+				</div>
+			</div>
+		</div>
+
+		<script>
+	$(document).ready(() => {
+	
+	$(".item").removeClass("active2");
+	$("#home-link").addClass("active2");
+});
+
+
+
+	</script>
+	</section>
+</body>
+</html>

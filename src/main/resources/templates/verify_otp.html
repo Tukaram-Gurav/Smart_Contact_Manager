@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Verify E-Mail</title>
+
+
+</head>
+<body class="bg">
+
+
+	<section>
+		<div id="login">
+			<div class="container">
+				<div id="login-row"
+					class="row justify-content-center align-items-center">
+					<div id="login-column" class="col-md-6">
+						<div id="login-box" class="col-md-12" style="height: 220px;">
+							<form id="login-form" class="form" th:action="@{/password-checker }"
+								action="" method="post">
+								
+								<h4 class="text-center text-info mt-2"><div class="alert alert-success" role="alert">OTP sent
+									successfully</div></h4>
+
+								<input required type="text" name="myotp"
+									class="form-control mt-4" placeholder="Enter Your OTP" />
+								<div class="container text-center mt-3">
+									<button type="submit" class="btn btn-warning">verify OTP</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+	</section>
+
+
+</body>
+</html>

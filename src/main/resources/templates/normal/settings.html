@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>User DashBoard</title>
+</head>
+<body>
+
+	<section>
+		<div class="row">
+			<div class="col-md-10 offset-md-1">
+				<div class="card mr-3 ml-3 mt-4">
+					<div class="card-body ml-5">
+						<h2 class="mt-2">1.Change Your Password</h2>
+						<form action="/user/Change" class="mt-1 text-center" method="post">
+							<button class="btn btn-sm  btn-warning mt-1">..Change.</button>
+						</form>	
+						<h2 class="mt-2">2.Download Your contacts in PDF FILE</h2>
+						<form action="/download/createpdf" class="mt-1 text-center" method="post">
+							<button class="btn btn-sm btn-warning mt-1">Download</button>
+						</form>
+
+
+						<h2 class="mt-2">3.Download Your contacts in XL FILE</h2>
+						<form action="/download/createxl" class="mt-1 text-center" method="post">
+							<button class="btn btn-sm  btn-warning mt-1">Download</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+	$(document).ready(() => {
+	
+	$(".item").removeClass("active2");
+	$("#setting-link").addClass("active2");
+});
+
+
+
+	</script>
+	</section>
+</body>
+</html>
